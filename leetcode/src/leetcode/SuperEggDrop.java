@@ -72,13 +72,13 @@ public class SuperEggDrop {
 			return 1;
 		}
 		int[] cache = new int[K + 1];
-		int m = 1;
-		for(int i = 1; i <= K; ++ i) {
+		int m = 1;       //总共扔的次数
+		for(int i = 1; i <= K; ++ i) {  //只能扔一次的情况下，无论有多少个鸡蛋都只能检测一层
 			cache[i] = 1;
 		}
 		while(cache[K] < N) {
 			for(int i = K; i > 0; -- i) {
-				cache[i] += cache[i - 1] + 1;
+				cache[i] = cache[i] + cache[i - 1] + 1;//等号左边的是总共可以扔m次时可测试的层数，右边是可以扔m-1次时的层数
 			}
 			++ m;
 		}

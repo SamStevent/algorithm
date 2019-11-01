@@ -80,7 +80,7 @@ public class WordBreak {
         }
         for (String word : wordDict) {
             if (s.startsWith(word)) {//判断s是否含有word的前缀
-                List<String> tmpList = wordBreak(s.substring(word.length()), wordDict);
+                List<String> tmpList = wordBreak1(s.substring(word.length()), wordDict);
                 for (String tmp : tmpList)
                     list.add(word + (tmp.equals("") ? "" : " ") + tmp);//空的话则""结尾    
             }
